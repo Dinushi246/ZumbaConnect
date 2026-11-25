@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - ZumbaConnect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">💃</span> ZumbaConnect
+    </a>
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="find-classes.html" >Find Classes</a></li>
+      <li><a href="instructors.html" >Instructors</a></li>
+      <li><a href="attendance.html" >Attendance</a></li>
+      <li><a href="activity-tracking.html" >Workout Tracking</a></li>
+      <li><a href="fitness-passport.html" >Passport</a></li>
+      <li><a href="fitness-dashboard.html" >Dashboard</a></li>
+      <li><a href="challenges.html" >Challenges</a></li>
+      <li><a href="admin-dashboard.html" >Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">Admin Management Portal</h1>
+      <p class="page-subtitle">Platform overview & instructor verification management.</p>
+      <button onclick="handleAdminLogout()" class="btn btn-outline" style="margin-top: 0.8rem;">🔒 Logout Admin</button>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div>
+          <div class="stat-value">1,420</div>
+          <div class="stat-label">Total Participants</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👯</div>
+        <div>
+          <div class="stat-value">124</div>
+          <div class="stat-label">Instructors</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⏳</div>
+        <div>
+          <div class="stat-value" style="color: var(--accent-gold);">2</div>
+          <div class="stat-label">Pending Verifications</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 2rem; font-size: 1.4rem;">Business Registration (BR) Verification Requests</h2>
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Instructor</th>
+            <th>Type / Name</th>
+            <th>BR Number</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="admin-br-table-body">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Admin Login Modal Overlay -->
+  <div id="admin-login-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2>🔒 Administrator Authentication</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 0.4rem;">Role-based access control area. Please log in.</p>
+      <form onsubmit="handleAdminLogin(event)" style="margin-top: 1.2rem; display: flex; flex-direction: column; gap: 0.9rem;">
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted);">Username</label>
+          <input type="text" id="admin-user" class="filter-input" style="width: 100%;" required placeholder="Username (admin)">
+        </div>
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted);">Password</label>
+          <input type="password" id="admin-pass" class="filter-input" style="width: 100%;" required placeholder="Password (admin)">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 0.5rem;">Log In to Admin Portal</button>
+      </form>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2026 ZumbaConnect Sri Lanka. All Rights Reserved. Location-Based Fitness & Activity Platform.</p>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>

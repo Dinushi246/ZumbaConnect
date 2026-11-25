@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Fitness Activity Tracking - ZumbaConnect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">💃</span> ZumbaConnect
+    </a>
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="find-classes.html" >Find Classes</a></li>
+      <li><a href="instructors.html" >Instructors</a></li>
+      <li><a href="attendance.html" >Attendance</a></li>
+      <li><a href="activity-tracking.html" >Workout Tracking</a></li>
+      <li><a href="fitness-passport.html" >Passport</a></li>
+      <li><a href="fitness-dashboard.html" >Dashboard</a></li>
+      <li><a href="challenges.html" >Challenges</a></li>
+      <li><a href="admin-dashboard.html" >Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">Track Your Fitness Journey</h1>
+      <p class="page-subtitle">Record your Zumba workouts and monitor your activity progress.</p>
+    </div>
+
+    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; text-align: center; max-width: 600px; margin: 0 auto;">
+      <h2 style="font-size: 1.2rem; color: var(--text-muted); text-transform: uppercase;">Live Workout Timer</h2>
+      <div id="timer-display" style="font-size: 3.5rem; font-weight: 700; font-family: monospace; color: var(--accent-pink); margin: 1rem 0;">00:00:00</div>
+      
+      <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem;">
+        <div>
+          <span style="display: block; font-size: 1.4rem; font-weight: 700; color: var(--accent-cyan);" id="timer-calories">0</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Est. Calories</span>
+        </div>
+        <div>
+          <span style="display: block; font-size: 1.4rem; font-weight: 700; color: var(--accent-gold);" id="timer-hr">125</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Heart Rate (bpm)</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;">
+        <button onclick="startWorkoutTimer()" class="btn btn-primary">▶ Start Workout</button>
+        <button onclick="pauseWorkoutTimer()" class="btn btn-outline">⏸ Pause</button>
+        <button onclick="stopWorkoutTimer()" class="btn btn-danger">⏹ End Workout</button>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 2.5rem; font-size: 1.4rem;">Workout Log & History</h2>
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Activity</th>
+            <th>Duration</th>
+            <th>Calories</th>
+            <th>Heart Rate</th>
+          </tr>
+        </thead>
+        <tbody id="workout-history-body">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="modal-summary" class="modal-overlay">
+    <div class="modal-content">
+      <button onclick="closeModal('modal-summary')" class="modal-close">&times;</button>
+      <h2>Workout Completed! 🎉</h2>
+      <p style="color: var(--text-muted);">Session saved to your personal history.</p>
+      <div style="margin: 1.5rem 0; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px;">
+        <p><strong>Workout Type:</strong> Zumba Dance Session</p>
+        <p><strong>Status:</strong> Saved to localStorage & database sync ready.</p>
+      </div>
+      <button onclick="closeModal('modal-summary')" class="btn btn-primary btn-block">Done</button>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2026 ZumbaConnect Sri Lanka. All Rights Reserved. Location-Based Fitness & Activity Platform.</p>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>

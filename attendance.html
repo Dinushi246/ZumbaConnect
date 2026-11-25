@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Attendance - ZumbaConnect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">💃</span> ZumbaConnect
+    </a>
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="find-classes.html" >Find Classes</a></li>
+      <li><a href="instructors.html" >Instructors</a></li>
+      <li><a href="attendance.html" >Attendance</a></li>
+      <li><a href="activity-tracking.html" >Workout Tracking</a></li>
+      <li><a href="fitness-passport.html" >Passport</a></li>
+      <li><a href="fitness-dashboard.html" >Dashboard</a></li>
+      <li><a href="challenges.html" >Challenges</a></li>
+      <li><a href="admin-dashboard.html" >Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">Digital Attendance Management</h1>
+      <p class="page-subtitle">Roster management & participant attendance tracking.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div>
+          <div class="stat-value">24</div>
+          <div class="stat-label">Total Classes</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div>
+          <div class="stat-value">142</div>
+          <div class="stat-label">Participants</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✓</div>
+        <div>
+          <div id="stat-present-count" class="stat-value" style="color: var(--accent-green);">128</div>
+          <div class="stat-label">Present</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Select Class</label>
+        <select class="filter-select">
+          <option>Colombo Dance Studio - Sat 8:00 AM</option>
+          <option>Kandy Fitness Hub - Thu 5:30 PM</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Session Date</label>
+        <input type="date" class="filter-input" value="2026-11-25">
+      </div>
+      <div class="filter-group" style="justify-content: flex-end;">
+        <button onclick="saveAttendanceRoster()" class="btn btn-primary">💾 Save Attendance Records</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Participant Name</th>
+            <th>Class Name</th>
+            <th>Session Date</th>
+            <th>Attendance Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="att-row" data-name="Amaya Perera">
+            <td><strong>Amaya Perera</strong></td>
+            <td>Colombo Dance Studio</td>
+            <td>2026-11-25</td>
+            <td><button onclick="toggleAttendance(this)" class="btn btn-success btn-att" data-status="present">Present ✓</button></td>
+          </tr>
+          <tr class="att-row" data-name="Dinesh Fernando">
+            <td><strong>Dinesh Fernando</strong></td>
+            <td>Colombo Dance Studio</td>
+            <td>2026-11-25</td>
+            <td><button onclick="toggleAttendance(this)" class="btn btn-success btn-att" data-status="present">Present ✓</button></td>
+          </tr>
+          <tr class="att-row" data-name="Samanthi Gunawardena">
+            <td><strong>Samanthi Gunawardena</strong></td>
+            <td>Colombo Dance Studio</td>
+            <td>2026-11-25</td>
+            <td><button onclick="toggleAttendance(this)" class="btn btn-outline btn-att" data-status="absent">Absent</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2026 ZumbaConnect Sri Lanka. All Rights Reserved. Location-Based Fitness & Activity Platform.</p>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Zumba Classes - ZumbaConnect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">💃</span> ZumbaConnect
+    </a>
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="find-classes.html" >Find Classes</a></li>
+      <li><a href="instructors.html" >Instructors</a></li>
+      <li><a href="attendance.html" >Attendance</a></li>
+      <li><a href="activity-tracking.html" >Workout Tracking</a></li>
+      <li><a href="fitness-passport.html" >Passport</a></li>
+      <li><a href="fitness-dashboard.html" >Dashboard</a></li>
+      <li><a href="challenges.html" >Challenges</a></li>
+      <li><a href="admin-dashboard.html" >Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">Find Nearby Zumba Classes</h1>
+      <p class="page-subtitle">Locate active fitness sessions across Sri Lanka with live GPS distance sorting.</p>
+    </div>
+
+    <div id="location-status" class="location-status" style="display: none;"></div>
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Search City or Studio</label>
+        <input type="text" id="filter-search" class="filter-input" placeholder="e.g. Colombo, Kandy, Galle">
+      </div>
+      <div class="filter-group">
+        <label>Distance Radius</label>
+        <select id="filter-radius" class="filter-select">
+          <option value="5">Within 5 km</option>
+          <option value="15" selected>Within 15 km</option>
+          <option value="50">Within 50 km</option>
+          <option value="all">All Sri Lanka</option>
+        </select>
+      </div>
+      <div class="filter-group" style="justify-content: flex-end;">
+        <button onclick="detectUserLocation()" class="btn btn-cyan">📍 Detect My Location</button>
+      </div>
+    </div>
+
+    <div class="map-frame">
+      <iframe id="google-map-iframe" src="https://maps.google.com/maps?q=6.9271,79.8612&z=11&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <div id="class-cards-container" class="card-grid">
+      <div class="card class-card" data-lat="6.9271" data-lng="79.8612">
+        <div class="card-body">
+          <span class="badge badge-verified">✓ Verified Instructor</span>
+          <h3>Colombo Dance Studio</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Cinnamon Gardens, Colombo 07</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">2.4 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,500 / session</p>
+          <button onclick="openModal('modal-book')" class="btn btn-primary btn-block" style="margin-top: 1rem;">Register Now</button>
+        </div>
+      </div>
+      <div class="card class-card" data-lat="7.2008" data-lng="79.8737">
+        <div class="card-body">
+          <span class="badge badge-gold">Beach Workout</span>
+          <h3>Negombo Beach Zumba</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Beach Road, Negombo</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">38 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,300 / session</p>
+          <button onclick="openModal('modal-book')" class="btn btn-primary btn-block" style="margin-top: 1rem;">Register Now</button>
+        </div>
+      </div>
+      <div class="card class-card" data-lat="7.4863" data-lng="80.3623">
+        <div class="card-body">
+          <span class="badge badge-pink">Evening Session</span>
+          <h3>Kurunegala Active Club</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Bauddhaloka Mawatha, Kurunegala</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">92 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,200 / session</p>
+          <button onclick="openModal('modal-book')" class="btn btn-primary btn-block" style="margin-top: 1rem;">Register Now</button>
+        </div>
+      </div>
+      <div class="card class-card" data-lat="7.2906" data-lng="80.6337">
+        <div class="card-body">
+          <span class="badge badge-verified">✓ Verified Instructor</span>
+          <h3>Kandy Fitness Hub</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Peradeniya Road, Kandy</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">115 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,400 / session</p>
+          <button onclick="openModal('modal-book')" class="btn btn-primary btn-block" style="margin-top: 1rem;">Register Now</button>
+        </div>
+      </div>
+      <div class="card class-card" data-lat="6.0535" data-lng="80.2210">
+        <div class="card-body">
+          <span class="badge badge-gold">Coastal Fitness</span>
+          <h3>Galle Fort Fitness Zone</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Main Street, Galle Fort</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">118 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,500 / session</p>
+          <button onclick="openModal('modal-book')" class="btn btn-primary btn-block" style="margin-top: 1rem;">Register Now</button>
+        </div>
+      </div>
+      <div class="card class-card" data-lat="9.6615" data-lng="80.0255">
+        <div class="card-body">
+          <span class="badge badge-verified">✓ Verified Instructor</span>
+          <h3>Jaffna Wellness Studio</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Hospital Road, Jaffna</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">395 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,100 / session</p>
+          <button onclick="openModal('modal-book')" class="btn btn-primary btn-block" style="margin-top: 1rem;">Register Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-book" class="modal-overlay">
+    <div class="modal-content">
+      <button onclick="closeModal('modal-book')" class="modal-close">&times;</button>
+      <h2>Class Registration Confirmation</h2>
+      <p style="color: var(--text-muted); margin-top: 0.4rem;">Reserve your slot for the upcoming session.</p>
+      <div style="margin: 1.2rem 0; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px;">
+        <p><strong>Studio:</strong> Colombo Dance Studio</p>
+        <p><strong>Schedule:</strong> Saturdays at 8:00 AM</p>
+        <p><strong>Fee:</strong> LKR 1,500</p>
+        <p><strong>Capacity:</strong> 8 seats remaining</p>
+      </div>
+      <button onclick="alert('Registration Successful! Your seat has been reserved.'); closeModal('modal-book');" class="btn btn-primary btn-block">Confirm Booking</button>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2026 ZumbaConnect Sri Lanka. All Rights Reserved. Location-Based Fitness & Activity Platform.</p>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>

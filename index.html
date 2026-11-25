@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZumbaConnect - Discover Classes & Track Fitness</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">💃</span> ZumbaConnect
+    </a>
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="find-classes.html" >Find Classes</a></li>
+      <li><a href="instructors.html" >Instructors</a></li>
+      <li><a href="attendance.html" >Attendance</a></li>
+      <li><a href="activity-tracking.html" >Workout Tracking</a></li>
+      <li><a href="fitness-passport.html" >Passport</a></li>
+      <li><a href="fitness-dashboard.html" >Dashboard</a></li>
+      <li><a href="challenges.html" >Challenges</a></li>
+      <li><a href="admin-dashboard.html" >Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header" style="padding: 3.5rem 1.5rem; background: rgba(33, 21, 46, 0.7); border-radius: 16px; border: 1px solid var(--border-color);">
+      <h1 class="page-title">Discover Classes. Track Progress. Stay Active.</h1>
+      <p class="page-subtitle">Uniting Zumba enthusiasts & licensed instructors across Sri Lanka.</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="find-classes.html" class="btn btn-primary">📍 Find Nearby Classes</a>
+        <a href="instructors.html" class="btn btn-outline">👯 Browse Instructors</a>
+      </div>
+    </div>
+
+    <div class="stats-grid" style="margin-top: 2rem;">
+      <div class="stat-card">
+        <div class="stat-icon">📍</div>
+        <div>
+          <div class="stat-value">45+</div>
+          <div class="stat-label">Active Studios</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👯</div>
+        <div>
+          <div class="stat-value">120+</div>
+          <div class="stat-label">Licensed Instructors</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⚡</div>
+        <div>
+          <div class="stat-value">1,500+</div>
+          <div class="stat-label">Workouts Logged</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 2.5rem; font-size: 1.5rem; border-bottom: 2px solid var(--accent-pink); padding-bottom: 0.5rem; display: inline-block;">Featured Zumba Sessions</h2>
+    <div class="card-grid">
+      <div class="card class-card" data-lat="6.9271" data-lng="79.8612">
+        <div class="card-body">
+          <span class="badge badge-gold">Zumba Fitness</span>
+          <h3>Colombo Dance Studio</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Cinnamon Gardens, Colombo 07</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">2.4 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,500 / session</p>
+          <a href="find-classes.html" class="btn btn-primary btn-block" style="margin-top: 1rem;">View Details & Book</a>
+        </div>
+      </div>
+      <div class="card class-card" data-lat="7.2906" data-lng="80.6337">
+        <div class="card-body">
+          <span class="badge badge-verified">Zumba Gold</span>
+          <h3>Kandy Fitness Hub</h3>
+          <p class="card-city" style="color: var(--text-muted); font-size: 0.9rem;">📍 Peradeniya Road, Kandy</p>
+          <p style="color: var(--accent-cyan); font-weight: 600;" class="dist-badge">115 km away</p>
+          <p style="font-weight: 700; color: var(--accent-pink);">LKR 1,200 / session</p>
+          <a href="find-classes.html" class="btn btn-primary btn-block" style="margin-top: 1rem;">View Details & Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2026 ZumbaConnect Sri Lanka. All Rights Reserved. Location-Based Fitness & Activity Platform.</p>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>

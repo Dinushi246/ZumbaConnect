@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructor Profiles - ZumbaConnect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">💃</span> ZumbaConnect
+    </a>
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="find-classes.html" >Find Classes</a></li>
+      <li><a href="instructors.html" >Instructors</a></li>
+      <li><a href="attendance.html" >Attendance</a></li>
+      <li><a href="activity-tracking.html" >Workout Tracking</a></li>
+      <li><a href="fitness-passport.html" >Passport</a></li>
+      <li><a href="fitness-dashboard.html" >Dashboard</a></li>
+      <li><a href="challenges.html" >Challenges</a></li>
+      <li><a href="admin-dashboard.html" >Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1 class="page-title">Registered Zumba Instructors</h1>
+      <p class="page-subtitle">Licensed ZIN® certified fitness instructors across Sri Lanka.</p>
+      <button onclick="openModal('modal-business')" class="btn btn-cyan" style="margin-top: 1rem;">📝 Register Business / Instructor Verification</button>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-body">
+          <span class="badge badge-verified">✓ Verified Instructor</span>
+          <h2 style="margin-top: 0.5rem;">Nipuni Perera</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">📍 Colombo | 6 Years Experience</p>
+          <p><strong>Specialization:</strong> Zumba Fitness, Zumba Gold</p>
+          <p style="color: var(--accent-gold);">★ 4.9 / 5.0 Average Rating</p>
+          <button onclick="openModal('modal-profile')" class="btn btn-outline btn-block" style="margin-top: 1rem;">View Profile</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="badge badge-verified">✓ Verified Business</span>
+          <h2 style="margin-top: 0.5rem;">Kasun Silva</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">📍 Negombo | 4 Years Experience</p>
+          <p><strong>Specialization:</strong> Aqua Zumba, Zumba Kids</p>
+          <p style="color: var(--accent-gold);">★ 4.8 / 5.0 Average Rating</p>
+          <button onclick="openModal('modal-profile')" class="btn btn-outline btn-block" style="margin-top: 1rem;">View Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-profile" class="modal-overlay">
+    <div class="modal-content">
+      <button onclick="closeModal('modal-profile')" class="modal-close">&times;</button>
+      <h2>Nipuni Perera - Instructor Profile</h2>
+      <p style="color: var(--text-muted);">Licensed ZIN® Member since 2018</p>
+      <hr style="border-color: var(--border-color); margin: 1rem 0;">
+      <p>Certified Zumba instructor specializing in high-energy fitness routines and cardio sessions for all age groups.</p>
+      <h3 style="margin-top: 1rem;">Active Classes:</h3>
+      <ul style="margin-left: 1.25rem; color: var(--text-muted);">
+        <li>Colombo Dance Studio (Sat 8:00 AM) - LKR 1,500</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-business" class="modal-overlay">
+    <div class="modal-content">
+      <button onclick="closeModal('modal-business')" class="modal-close">&times;</button>
+      <h2>Instructor & Business Verification Form</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem;">Submit your details for Admin badge approval. Private documents are kept confidential.</p>
+      <form onsubmit="submitBusinessRegistration(event)" style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.8rem;">
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted);">Registration Type</label>
+          <select id="br-type" class="filter-select" style="width: 100%;">
+            <option>Registered Business</option>
+            <option>Individual Instructor</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted);">Business / Instructor Name</label>
+          <input type="text" id="br-name" class="filter-input" style="width: 100%;" required placeholder="e.g. Zumba Fit Studio">
+        </div>
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted);">Business Registration (BR) Number</label>
+          <input type="text" id="br-num" class="filter-input" style="width: 100%;" required placeholder="e.g. BR-98421">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 0.5rem;">Submit for Verification</button>
+      </form>
+    </div>
+  </div>
+  
+  <footer>
+    <p>&copy; 2026 ZumbaConnect Sri Lanka. All Rights Reserved. Location-Based Fitness & Activity Platform.</p>
+  </footer>
+  <script src="app.js"></script>
+
+</body>
+</html>
